@@ -58,8 +58,8 @@ public class SearchGoogle {
 		List<com.google.api.services.customsearch.model.Result> resultList=null;
 		try {
 			Customsearch.Cse.List list=customsearch.cse().list(keyword);
-			list.setKey("AIzaSyD4x3-B_ZaKspr_0gLTfhLCXIyYkUD-J50");
-			list.setCx("014097863273480938663:pmmxsyuflaa");
+			list.setKey("App Key");
+			list.setCx("Search Engine ID");
 			Search results=list.execute();
 			resultList=results.getItems();
 		}
@@ -80,7 +80,7 @@ public class SearchGoogle {
 			int r = (int) (Math.random() * 10000 ) + 1;
 			fileName += r + ".txt.cache";
 			
-			File cache = new File("/home/zx/cache/" + fileName);
+			File cache = new File("Local Folder" + fileName);
 			FileWriter fw = new FileWriter(cache);
 			fw.write(hm.s + "\n");
 			fw.write(hm.sb.toString());
@@ -90,10 +90,10 @@ public class SearchGoogle {
 		Helper[] meinCache;
 		
 		public Helper[] readCache() throws IOException {
-			int anzahlFiles = new File("/home/zx/cache/").listFiles().length;
+			int anzahlFiles = new File("Local Folder").listFiles().length;
 			meinCache = new Helper[anzahlFiles];
 			int pos = 0;
-			for ( File f :  new File("/home/zx/cache/").listFiles() ) {
+			for ( File f :  new File("Local Folder").listFiles() ) {
 				Helper h = new Helper();
 				Scanner scan = new Scanner(f);
 				scan.useDelimiter("\n");
